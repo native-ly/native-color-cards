@@ -17,6 +17,7 @@ module.exports = env => {
     mode,
     entry: `${__dirname}/src/index.tsx`,
     externals: [
+      'color',
       'expo',
       '@expo/vector-icons',
       'react',
@@ -29,15 +30,13 @@ module.exports = env => {
       path: `${__dirname}/lib`,
       filename: outputFile,
       library: 'NativeColorPicker',
-      libraryTarget: 'umd',
-      umdNamedDefine: true,
-      globalObject: 'global',
+      libraryTarget: 'commonjs2',
     },
     module: {
       rules: [
         {
-          test: /\.tsx$/,
-          loader: 'babel-loader',
+          test: /\.tsx?$/,
+          loader: 'ts-loader',
           exclude: /node_modules/,
           resolve: {
             extensions: ['.tsx'],
