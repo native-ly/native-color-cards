@@ -3,5 +3,16 @@
 [![NPM version](http://img.shields.io/npm/v/native-color-cards.svg?style=flat-square)](https://www.npmjs.com/package/native-color-cards)
 [![NPM downloads](http://img.shields.io/npm/dm/native-color-cards.svg?style=flat-square)](https://www.npmjs.com/package/native-color-cards)
 
+## How to Install
+First, install the library in your project by npm:
+```sh
+$ npm install native-color-cards
+```
+
+Or Yarn:
+```sh
+$ yarn add native-color-cards
+```
+
 ## License
 This project is licensed under the MIT License © 2019-present Jakub Biesiada
