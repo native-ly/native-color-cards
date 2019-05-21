@@ -3,6 +3,9 @@
 [![NPM version](http://img.shields.io/npm/v/native-color-cards.svg?style=flat-square)](https://www.npmjs.com/package/native-color-cards)
 [![NPM downloads](http://img.shields.io/npm/dm/native-color-cards.svg?style=flat-square)](https://www.npmjs.com/package/native-color-cards)
 
+## About
+Color cards (Shortcuts.app style) for React Native
+
 ## How to Install
 First, install the library in your project by npm:
 ```sh
