@@ -1,43 +1,15 @@
-import React from 'react'
-import styled from 'styled-components/native'
-import { View, Dimensions } from 'react-native'
-import TouchableScale from 'react-native-touchable-scale'
-import { Ionicons } from '@expo/vector-icons'
+import React, { Component } from 'react'
+import { View, Animated, Easing } from 'react-native'
 import Color from 'color'
 
 import { Title } from './Title'
 import { Options } from './Options'
 import { Gradient } from './Gradient'
+import { Check } from './CheckBox'
 
 import { checkColor } from '../helpers'
 
 import { Card as Props } from '../interfaces'
-
-const Base = styled(TouchableScale)`
-  ${({ color, shadow }) => `
-    border-radius: 10px;
-    width: ${Dimensions.get('window').width / 2 - 25};
-    padding: 9px 11px;
-    margin: 6px;
-    background-color: ${color};
-    height: 88px;
-
-    ${
-      shadow
-        ? `
-        shadow-opacity: 0.75;
-        shadow-radius: 5px;
-        shadow-color: ${color};
-        shadow-offset: 0 0;
-      `
-        : ``
-    }
-  `}
-`
-
-const Icon = styled(Ionicons)`
-  margin-top: -2px;
-`
 
 export const Card = ({
   backgroundColor,
