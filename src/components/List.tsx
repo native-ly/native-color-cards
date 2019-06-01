@@ -1,7 +1,22 @@
-import React from 'react'
-import { FlatList, Dimensions, FlatListProps } from 'react-native'
-import styled from 'styled-components/native'
+import React, { useState } from 'react'
 
-export const List = ({ ...props }: FlatListProps<object>): JSX.Element => (
-  <Base {...props} />
-)
+import { Base } from '../bases/List'
+
+import { List as ListProps } from '../interfaces'
+
+import { ListContext } from '../context'
+
+export const List = (props: ListProps) => {
+  const [editable, setEditable] = useState<boolean>(false)
+
+  return (
+    <ListContext.Provider
+      value={{
+        startEditable: () => setEditable(true),
+        isEditable: editable,
+      }}
+    >
+      <Base {...props} />
+    </ListContext.Provider>
+  )
+}
