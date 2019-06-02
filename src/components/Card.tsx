@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { Animated, Easing, TouchableOpacity } from 'react-native'
-import { Haptic } from 'expo'
+import * as Haptics from 'expo-haptics'
 import Color from 'color'
 
 import { Title } from './Title'
@@ -21,10 +21,10 @@ export const Card = ({
   backgroundColor,
   title = '',
   color = 'adjust',
-  titleProps = {},
-  optionsProps = {},
-  gradientProps = {},
-  checkBoxProps = {},
+  titleProps,
+  optionsProps,
+  gradientProps,
+  checkBoxProps,
   gradient = false,
   shadow = false,
   scalable = true,
@@ -44,7 +44,7 @@ export const Card = ({
     setChecked(!checked)
     setScale(scalable ? 0.96 : 1)
 
-    Haptic.selectionAsync()
+    Haptics.selectionAsync()
   }
 
   const longPress = () => {

@@ -18,7 +18,9 @@ module.exports = env => {
     entry: `${__dirname}/src/index.tsx`,
     externals: [
       'color',
-      'expo',
+      'expo-blur',
+      'expo-haptics',
+      'expo-linear-gradient',
       '@expo/vector-icons',
       'react',
       'react-native',
