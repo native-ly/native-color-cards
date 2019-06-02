@@ -2,6 +2,8 @@ import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import Color from 'color'
 
+import { Theme } from '../interfaces'
+
 import { Base, BlurLayer } from '../bases/Options'
 
 export const Options = ({
@@ -9,11 +11,7 @@ export const Options = ({
   faded,
   isDark,
   ...props
-}: {
-  color: string
-  faded: boolean
-  isDark: any
-}): JSX.Element => (
+}: Theme): JSX.Element => (
   <Base {...props}>
     <BlurLayer
       faded={faded}

@@ -9,6 +9,8 @@ import { darker, lighter } from '../helpers'
 
 export const Gradient = ({ color, faded }: Theme): JSX.Element => (
   <Base
+    start={[0.2, 0]}
+    end={[0.8, 1]}
     colors={
       faded
         ? ['#fff4', '#fff4']
@@ -16,7 +18,5 @@ export const Gradient = ({ color, faded }: Theme): JSX.Element => (
         ? darker(color)
         : lighter(color)
     }
-    start={[0.2, 0]}
-    end={[0.8, 1]}
   />
 )

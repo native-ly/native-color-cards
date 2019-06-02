@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
+import { FlatListProps } from 'react-native'
 
 import { Base } from '../bases/List'
 
-import { List as ListProps } from '../interfaces'
-
 import { ListContext } from '../context'
 
-export const List = (props: ListProps) => {
+export const List = (props: FlatListProps<any>) => {
   const [editable, setEditable] = useState<boolean>(false)
 
   return (
