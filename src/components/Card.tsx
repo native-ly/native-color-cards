@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { Animated, Easing } from 'react-native'
 import { Haptic } from 'expo'
 import Color from 'color'
@@ -53,30 +53,28 @@ export const Card = ({
     onLongPress()
   }
 
-  useEffect(() => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(animatedValue, {
-          toValue: 0.3,
-          duration: 100,
-          easing: Easing.quad,
-          useNativeDriver: true,
-        }),
-        Animated.timing(animatedValue, {
-          toValue: -0.3,
-          duration: 100,
-          easing: Easing.quad,
-          useNativeDriver: true,
-        }),
-        Animated.timing(animatedValue, {
-          toValue: 0.0,
-          duration: 100,
-          easing: Easing.quad,
-          useNativeDriver: true,
-        }),
-      ])
-    ).start()
-  }, [])
+  Animated.loop(
+    Animated.sequence([
+      Animated.timing(animatedValue, {
+        toValue: 0.3,
+        duration: 100,
+        easing: Easing.bounce,
+        useNativeDriver: true,
+      }),
+      Animated.timing(animatedValue, {
+        toValue: -0.3,
+        duration: 100,
+        easing: Easing.bounce,
+        useNativeDriver: true,
+      }),
+      Animated.timing(animatedValue, {
+        toValue: 0.0,
+        duration: 100,
+        easing: Easing.bounce,
+        useNativeDriver: true,
+      }),
+    ])
+  ).start()
 
   if (color === 'adjust') {
     color = checkColor(backgroundColor)
@@ -89,39 +87,48 @@ export const Card = ({
       style={{
         transform: [
           {
-            rotate: isEditable
-              ? animatedValue.interpolate({
-                  inputRange: [-1, 1],
-                  outputRange: ['-0.1rad', '0.1rad'],
-                })
-              : '0rad',
+            rotate:
+              isEditable && !flat
+                ? animatedValue.interpolate({
+                    inputRange: [-1, 1],
+                    outputRange: ['-0.1rad', '0.1rad'],
+                  })
+                : '0rad',
           },
         ],
       }}
     >
       <Base
-        activeScale={scale}
-        onPress={() => press()}
-        onLongPress={() => longPress()}
+        activeScale={flat ? 1 : scale}
+        onPress={() => !flat && press()}
+        onLongPress={() => !flat && longPress()}
         color={backgroundColor}
-        shadow={shadow}
+        shadow={shadow && !flat}
         flat={flat}
         {...props}
       >
-        {checked && isEditable ? (
+        {checked && isEditable && !flat ? (
           <Check {...checkBoxProps} />
         ) : (
-          icon && <Icon name={icon} color={color} size={30} />
+          icon && (
+            <Icon
+              name={icon}
+              color={flat ? backgroundColor : color}
+              size={30}
+            />
+          )
         )}
 
-        <Options
-          color={color}
-          isDark={backgroundColor}
-          faded={checked && isEditable}
-          {...optionsProps}
-        />
+        {!flat && (
+          <Options
+            color={color}
+            isDark={backgroundColor}
+            faded={checked && isEditable}
+            {...optionsProps}
+          />
+        )}
 
-        <Title color={color} {...titleProps}>
+        <Title color={flat ? backgroundColor : color} {...titleProps}>
           {title}
         </Title>
 
