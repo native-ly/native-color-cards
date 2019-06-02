@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Animated, Easing } from 'react-native'
 import { Haptic } from 'expo'
 import Color from 'color'
@@ -33,6 +33,8 @@ export const Card = ({
   onLongPress,
   ...props
 }: Props) => {
+  const { startEditable, isEditable } = useContext(ListContext)
+
   const [checked, setChecked] = useState<boolean>(false)
   const [scale, setScale] = useState<number>(0.96)
 
@@ -42,10 +44,10 @@ export const Card = ({
     setChecked(!checked)
     setScale(scalable ? 0.96 : 1)
 
-    Haptic.selection()
+    Haptic.selectionAsync()
   }
 
-  const longPress = (startEditable: any) => {
+  const longPress = () => {
     startEditable(true)
 
     onLongPress()
@@ -83,58 +85,54 @@ export const Card = ({
   }
 
   return (
-    <ListContext.Consumer>
-      {({ startEditable, isEditable }) => (
-        <Animated.View
-          style={{
-            transform: [
-              {
-                rotate: isEditable
-                  ? animatedValue.interpolate({
-                      inputRange: [-1, 1],
-                      outputRange: ['-0.1rad', '0.1rad'],
-                    })
-                  : '0rad',
-              },
-            ],
-          }}
-        >
-          <Base
-            activeScale={scale}
-            onPress={() => press()}
-            onLongPress={() => longPress(startEditable)}
-            color={backgroundColor}
-            shadow={shadow}
-            flat={flat}
-            {...props}
-          >
-            {checked && isEditable ? (
-              <Check {...checkBoxProps} />
-            ) : (
-              icon && <Icon name={icon} color={color} size={30} />
-            )}
+    <Animated.View
+      style={{
+        transform: [
+          {
+            rotate: isEditable
+              ? animatedValue.interpolate({
+                  inputRange: [-1, 1],
+                  outputRange: ['-0.1rad', '0.1rad'],
+                })
+              : '0rad',
+          },
+        ],
+      }}
+    >
+      <Base
+        activeScale={scale}
+        onPress={() => press()}
+        onLongPress={() => longPress()}
+        color={backgroundColor}
+        shadow={shadow}
+        flat={flat}
+        {...props}
+      >
+        {checked && isEditable ? (
+          <Check {...checkBoxProps} />
+        ) : (
+          icon && <Icon name={icon} color={color} size={30} />
+        )}
 
-            <Options
-              color={color}
-              isDark={backgroundColor}
-              faded={checked && isEditable}
-              {...optionsProps}
-            />
+        <Options
+          color={color}
+          isDark={backgroundColor}
+          faded={checked && isEditable}
+          {...optionsProps}
+        />
 
-            <Title color={color} {...titleProps}>
-              {title}
-            </Title>
+        <Title color={color} {...titleProps}>
+          {title}
+        </Title>
 
-            {gradient && !flat && (
-              <Gradient
-                color={color}
-                faded={checked && isEditable}
-                {...gradientProps}
-              />
-            )}
-          </Base>
-        </Animated.View>
-      )}
-    </ListContext.Consumer>
+        {gradient && !flat && (
+          <Gradient
+            color={color}
+            faded={checked && isEditable}
+            {...gradientProps}
+          />
+        )}
+      </Base>
+    </Animated.View>
   )
 }
