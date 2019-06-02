@@ -1,13 +1,19 @@
-import { TouchableHighlightProps, TextProps } from 'react-native'
+import { TextProps, TouchableOpacityProps, ViewProps } from 'react-native'
+import { LinearGradientProps } from 'expo'
 
-export interface Card extends TouchableHighlightProps {
+export interface Card {
   readonly backgroundColor: string
-  readonly color: 'adjust' | 'contrast' | string
-  readonly title: string
-  readonly titleProps: TextProps
-  readonly optionsProps: object
-  readonly gradient: boolean
-  readonly shadow: boolean
-  readonly scalable: boolean
-  readonly icon: string
+  readonly color?: 'adjust' | 'contrast' | string
+  readonly title?: string
+  readonly titleProps?: TextProps
+  readonly optionsProps?: TouchableOpacityProps
+  readonly gradientProps?: LinearGradientProps
+  readonly checkBoxProps?: ViewProps
+  readonly gradient?: boolean
+  readonly shadow?: boolean
+  readonly scalable?: boolean
+  readonly icon?: string
+  readonly flat?: boolean
+  readonly onLongPress: () => void
+  readonly finishEdit?: boolean
 }

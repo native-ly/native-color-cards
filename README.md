@@ -17,5 +17,11 @@ Or Yarn:
 $ yarn add native-color-cards
 ```
 
+## Getting Started
+**• Connect libary with project using ES6 import:**
+```js
+import { List, Card } from 'native-color-cards';
+```
+
 ## License
 This project is licensed under the MIT License © 2019-present Jakub Biesiada

@@ -1,6 +1,6 @@
 import { TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native'
-import { BlurView } from 'expo'
+import { BlurView } from 'expo-blur'
 
 import { flex, size } from '../helpers'
 

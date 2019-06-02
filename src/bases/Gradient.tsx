@@ -1,4 +1,4 @@
-import { LinearGradient } from 'expo'
+import { LinearGradient } from 'expo-linear-gradient'
 import styled from 'styled-components/native'
 
 export const Base = styled(LinearGradient)`

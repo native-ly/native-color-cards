@@ -5,17 +5,19 @@ import TouchableScale from 'react-native-touchable-scale'
 export const Base = styled(TouchableScale)`
   ${({ color, shadow, flat }) => `
     border-radius: 10px;
+    padding: 9px 11px;
+    margin: 6px;
+    height: 88px;
+
     width: ${Dimensions.get('window').width / 2 - 25};
     ${
       flat
         ? `
-    border-width: 2px;
-     border-color:`
+        border-width: 2px;
+        border-color:
+      `
         : `background-color:`
     } ${color};
-    padding: 9px 11px;
-    margin: 6px;
-    height: 88px;
 
     ${
       shadow

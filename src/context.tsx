@@ -1,9 +1,9 @@
 import React from 'react'
 
 export const ListContext = React.createContext<{
-  startEditable: any
+  startEditable: (state: boolean) => void
   isEditable: boolean
 }>({
-  startEditable: () => null,
+  startEditable: () => false,
   isEditable: false,
 })
