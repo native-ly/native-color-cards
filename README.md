@@ -23,5 +23,10 @@ $ yarn add native-color-cards
 import { List, Card } from 'native-color-cards';
 ```
 
+## Options
+**List**
+
+**Card**
+
 ## License
 This project is licensed under the MIT License © 2019-present Jakub Biesiada

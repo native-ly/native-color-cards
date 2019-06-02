@@ -1,9 +1,11 @@
 import { TextProps, TouchableOpacityProps, ViewProps } from 'react-native'
 import { LinearGradientProps } from 'expo'
 
+import { Color } from '../types'
+
 export interface Card {
   readonly backgroundColor: string
-  readonly color?: 'adjust' | 'contrast' | string
+  readonly color?: Color
   readonly title?: string
   readonly titleProps?: TextProps
   readonly optionsProps?: TouchableOpacityProps
