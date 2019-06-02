@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Animated, Easing } from 'react-native'
+import { Animated, Easing, TouchableOpacity } from 'react-native'
 import { Haptic } from 'expo'
 import Color from 'color'
 
@@ -101,6 +101,7 @@ export const Card = ({
       <Base
         activeScale={flat ? 1 : scale}
         onPress={() => !flat && press()}
+        as={flat ? TouchableOpacity : Base}
         onLongPress={() => !flat && longPress()}
         color={backgroundColor}
         shadow={shadow && !flat}
