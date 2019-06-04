@@ -19,18 +19,18 @@ import { Icon } from '../bases/Icon'
 
 export const Card = ({
   backgroundColor,
-  title = '',
-  color = 'adjust',
-  titleProps,
-  optionsProps,
-  gradientProps,
   checkBoxProps,
-  gradient = false,
-  shadow = false,
-  scalable = true,
-  icon = 'ios-car',
+  color = 'adjust',
   flat = false,
+  gradient = false,
+  gradientProps,
+  icon = 'ios-car',
   onLongPress,
+  optionsProps,
+  scalable = true,
+  shadow = false,
+  title = '',
+  titleProps,
   ...props
 }: Props) => {
   const { startEditable, isEditable } = useContext(ListContext)

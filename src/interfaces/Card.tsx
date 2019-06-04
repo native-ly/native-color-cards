@@ -5,17 +5,16 @@ import { Color } from '../types'
 
 export interface Card {
   readonly backgroundColor: string
+  readonly checkBoxProps?: ViewProps
   readonly color?: Color
+  readonly flat?: boolean
+  readonly gradient?: boolean
+  readonly gradientProps?: LinearGradientProps
+  readonly icon?: string
+  readonly onLongPress: () => void
+  readonly optionsProps?: TouchableOpacityProps
+  readonly scalable?: boolean
+  readonly shadow?: boolean
   readonly title?: string
   readonly titleProps?: TextProps
-  readonly optionsProps?: TouchableOpacityProps
-  readonly gradientProps?: LinearGradientProps
-  readonly checkBoxProps?: ViewProps
-  readonly gradient?: boolean
-  readonly shadow?: boolean
-  readonly scalable?: boolean
-  readonly icon?: string
-  readonly flat?: boolean
-  readonly onLongPress: () => void
-  readonly finishEdit?: boolean
 }
