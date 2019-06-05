@@ -43,38 +43,17 @@ export const Card = ({
   const press = () => {
     setChecked(!checked)
     setScale(scalable ? 0.96 : 1)
-
-    Haptics.selectionAsync()
   }
 
   const longPress = () => {
     startEditable(true)
 
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
+
     onLongPress()
   }
 
-  Animated.loop(
-    Animated.sequence([
-      Animated.timing(animatedValue, {
-        toValue: 0.3,
-        duration: 100,
-        easing: Easing.bounce,
-        useNativeDriver: true,
-      }),
-      Animated.timing(animatedValue, {
-        toValue: -0.3,
-        duration: 100,
-        easing: Easing.bounce,
-        useNativeDriver: true,
-      }),
-      Animated.timing(animatedValue, {
-        toValue: 0.0,
-        duration: 100,
-        easing: Easing.bounce,
-        useNativeDriver: true,
-      }),
-    ])
-  ).start()
+  animations(animatedValue)
 
   if (color === 'adjust') {
     color = checkColor(backgroundColor)
@@ -91,7 +70,7 @@ export const Card = ({
               isEditable && !flat
                 ? animatedValue.interpolate({
                     inputRange: [-1, 1],
-                    outputRange: ['-0.1rad', '0.1rad'],
+                    outputRange: ['-0.06rad', '0.06rad'],
                   })
                 : '0rad',
           },
@@ -108,30 +87,29 @@ export const Card = ({
         flat={flat}
         {...props}
       >
-        {checked && isEditable && !flat ? (
-          <Check {...checkBoxProps} />
-        ) : (
-          icon && (
-            <Icon
-              name={icon}
-              color={flat ? backgroundColor : color}
-              size={30}
-            />
+        {icon && <Icon name={icon} color={color} size={30} />}
+
+        {!flat ? (
+          isEditable ? (
+            checked && <Check {...checkBoxProps} />
+          ) : (
+            <Options color={color} isDark={backgroundColor} {...optionsProps} />
           )
-        )}
+        ) : null}
 
-        {!flat && (
-          <Options
-            color={color}
-            isDark={backgroundColor}
-            faded={checked && isEditable}
-            {...optionsProps}
-          />
-        )}
+        <Info>
+          {title && (
+            <Title isPrimary color={color} numberOfLines={2}>
+              {title}
+            </Title>
+          )}
 
-        <Title color={flat ? backgroundColor : color} {...titleProps}>
-          {title}
-        </Title>
+          {subtitle && !flat && (
+            <Title numberOfLines={1} color={color}>
+              {subtitle}
+            </Title>
+          )}
+        </Info>
 
         {gradient && !flat && (
           <Gradient

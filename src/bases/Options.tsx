@@ -10,12 +10,11 @@ export const Base = styled(TouchableOpacity)`
   right: 11px;
   top: 9px;
 `
-export const BlurLayer = styled(BlurView)<{ faded: boolean }>`
+export const BlurLayer = styled(BlurView)`
   ${flex}
 
   ${size}
-
-  opacity: ${({ faded }) => (faded ? 0.6 : 1)}
+  
   border-radius: 13px;
   padding-top: 2px;
 `
