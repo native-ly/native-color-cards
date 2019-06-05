@@ -42,7 +42,6 @@ optionsProps | object | `null` | Props for options (`TouchableOpacity` component
 scalable | boolean | `true` | Enable or disable scale change on card press | `true` - enable, `false` - disable
 shadow | boolean | `false` | Display shadow for card | `true` - enable, `false` - disable
 title | string | ` ` | Card title text | Title of your card
-titleProps | object | `null` | Props for title (`Text` component) | `{ /* options here */ }`
 
 ## License
 This project is licensed under the MIT License © 2019-present Jakub Biesiada
