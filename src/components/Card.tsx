@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Animated, Easing, TouchableOpacity } from 'react-native'
+import { Animated, TouchableOpacity } from 'react-native'
 import * as Haptics from 'expo-haptics'
 import Color from 'color'
 
@@ -8,13 +8,13 @@ import { Options } from './Options'
 import { Gradient } from './Gradient'
 import { Check } from './CheckBox'
 
-import { checkColor } from '../helpers'
+import { animations, checkColor } from '../helpers'
 
 import { Card as Props } from '../interfaces'
 
 import { ListContext } from '../context'
 
-import { Base } from '../bases/Card'
+import { Base, Info } from '../bases/Card'
 import { Icon } from '../bases/Icon'
 
 export const Card = ({
@@ -29,10 +29,10 @@ export const Card = ({
   optionsProps,
   scalable = true,
   shadow = false,
+  subtitle = '',
   title = '',
-  titleProps,
   ...props
-}: Props) => {
+}: Props): JSX.Element => {
   const { startEditable, isEditable } = useContext(ListContext)
 
   const [checked, setChecked] = useState<boolean>(false)

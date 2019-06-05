@@ -7,10 +7,10 @@ import { Title as TitleProps } from '../interfaces'
 export const Title = ({
   color,
   children,
-  numberOfLines = 2,
+  isPrimary = false,
   ...props
 }: TitleProps) => (
-  <Base color={color} numberOfLines={numberOfLines} {...props}>
+  <Base color={color} isPrimary={isPrimary} {...props}>
     {children}
   </Base>
 )
