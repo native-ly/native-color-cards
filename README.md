@@ -27,6 +27,7 @@ import { List, Card } from 'native-color-cards';
 **List (extends FlatList)**
 
 **Card (extends TouchableScale props), Flat card (extends TouchableOpacity props)**
+
 Name | Type | Default | Description | Available options
 -|-|-|-|-
 backgroundColor | string | ` ` | Card element background color | e.g.: `#D23440`
