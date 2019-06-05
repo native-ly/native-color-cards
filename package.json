@@ -34,7 +34,7 @@
     "react-native-draggable-grid": "^1.1.0",
     "react-native-sortable-grid": "^2.0.0",
     "react-native-touchable-scale": "^2.0.0",
-    "styled-components": "^4.2.1"
+    "styled-components": "^4.3.0"
   },
   "devDependencies": {
     "@types/color": "^3.0.0",
