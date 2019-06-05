@@ -1,4 +1,4 @@
-import { TextProps, TouchableOpacityProps, ViewProps } from 'react-native'
+import { TouchableOpacityProps, ViewProps } from 'react-native'
 import { LinearGradientProps } from 'expo'
 
 import { Color } from '../types'
