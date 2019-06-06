@@ -1381,22 +1381,22 @@ expand-tilde@^2.0.0, expand-tilde@^2.0.2:
   dependencies:
     homedir-polyfill "^1.0.1"
 
-expo-blur@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/expo-blur/-/expo-blur-5.0.0.tgz#794f9c066084daa0c67b4dbd5e39be1ad1fde5c1"
-  integrity sha512-CpRxiTZiAqd6ZLo1N35eiREKc32fCxawsXgJ1Mi1ymP828pfKD+LbS6LdlriYgKalaRKDpW50kVIwIkMvhfMCA==
+expo-blur@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/expo-blur/-/expo-blur-5.0.1.tgz#39edbb391965ec3b426ded6b869618d8294dd56c"
+  integrity sha512-tOrVAut04HBkGQ+CizvCXCluHYWVkBvJ4b4OJnLmVV6WzW7Q2cfWglPzGRn/ue/Yw5IZ6p6mZInEqLt/SFkGDg==
   dependencies:
     prop-types "^15.6.0"
 
-expo-haptics@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/expo-haptics/-/expo-haptics-5.0.0.tgz#0f9301c165ebcbf6024a890c0842603a244a2772"
-  integrity sha512-jOCH9otlBOFJ/Rhd7gPj9tM1GWxYeRqjkMiZcoXD9P05s7+boNotjqxiZi6TRE8V0XnEZmWByj1msbRqTZQ1ew==
+expo-haptics@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/expo-haptics/-/expo-haptics-5.0.1.tgz#60b67bc613522ddd1ad5e4d701412771fe333c40"
+  integrity sha512-+ULs5ZNJXT81PILX+Dpp1l9AvcfZZUazg9wX7Dho//ZIaWncPpd5kkiqZpgBlIJNmr7W0rjGcaD8SqVXgesnKg==
 
-expo-linear-gradient@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/expo-linear-gradient/-/expo-linear-gradient-5.0.0.tgz#30b57b64501f66acedcecc4fe7361087b50ea62c"
-  integrity sha512-LGmcqBv2F+urXzUwJe73dkjl52/Hctj3Y3ZIlaQS3AshlFON+mpRDuESMAxHVkZttchsBtIqWGktJuNPfqk8HQ==
+expo-linear-gradient@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/expo-linear-gradient/-/expo-linear-gradient-5.0.1.tgz#b4f5450d680b9315f22f4f99fee6a2b90fb49d92"
+  integrity sha512-5dKn9JIXmXXHq6itC/Jpqo65Tkgjwacyw1kpD8sekoFTEVfT6ciFd2djqIcciUqIa57FF/5d2q54mUvjoqD/TA==
 
 extend-shallow@^2.0.1:
   version "2.0.1"
