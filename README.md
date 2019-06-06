@@ -35,7 +35,7 @@ checkBoxProps | object | `null` | Props for checkbox (`View` component) | `{ /* 
 color | string | `adjust` | Card title & icon color | `adjust` - geterates color based on card color, `contrast` - chooses `#fff` or `#000` based on card background color, static color in `rgb`, `hex` etc.
 flat | boolean | `false` | Make flat card (without options, gradient, animation, select) | `true` - enable, `false` - dusable
 gradient | boolean | `false` | Enable or disable gradient layer over card | `true` - enable, `false` - disable
-icon | string | `ios-car` | Icon name | `@expo/vector-icons` icons
+icon | string | ` ` | Icon name | `@expo/vector-icons` icons
 gradientProps | object | `null` | Props for gradient (`LinearGradient` component) | `{ /* options here */ }`
 onLongPress | function | `() => void` | Callback on long press | `() => { /* code */ }`
 optionsProps | object | `null` | Props for options (`TouchableOpacity` component) | `{ /* options here */ }`

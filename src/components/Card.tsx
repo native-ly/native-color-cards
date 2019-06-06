@@ -24,7 +24,7 @@ export const Card = ({
   flat = false,
   gradient = false,
   gradientProps,
-  icon = 'ios-car',
+  icon,
   onLongPress,
   optionsProps,
   scalable = true,
@@ -67,7 +67,7 @@ export const Card = ({
         transform: [
           {
             rotate:
-              isEditable && !flat
+              editable && !flat
                 ? animatedValue.interpolate({
                     inputRange: [-1, 1],
                     outputRange: ['-0.06rad', '0.06rad'],
