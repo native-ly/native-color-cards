@@ -11,8 +11,8 @@ export const List = (props: FlatListProps<any>) => {
   return (
     <ListContext.Provider
       value={{
-        startEditable: () => setEditable(true),
-        isEditable: editable,
+        editable,
+        setEditable: state => setEditable(state),
       }}
     >
       <Base {...props} />

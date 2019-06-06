@@ -33,7 +33,7 @@ export const Card = ({
   title = '',
   ...props
 }: Props): JSX.Element => {
-  const { startEditable, isEditable } = useContext(ListContext)
+  const { editable, setEditable } = useContext(ListContext)
 
   const [checked, setChecked] = useState<boolean>(false)
   const [scale, setScale] = useState<number>(0.96)
@@ -41,12 +41,12 @@ export const Card = ({
   const animatedValue = new Animated.Value(0)
 
   const press = () => {
-    setChecked(!checked)
+    editable && setChecked(!checked)
     setScale(scalable ? 0.96 : 1)
   }
 
   const longPress = () => {
-    startEditable(true)
+    setEditable(true)
 
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
 
@@ -89,13 +89,12 @@ export const Card = ({
       >
         {icon && <Icon name={icon} color={color} size={30} />}
 
-        {!flat ? (
-          isEditable ? (
+        {!flat &&
+          (editable ? (
             checked && <Check {...checkBoxProps} />
           ) : (
             <Options color={color} isDark={backgroundColor} {...optionsProps} />
-          )
-        ) : null}
+          ))}
 
         <Info>
           {title && (
@@ -114,7 +113,7 @@ export const Card = ({
         {gradient && !flat && (
           <Gradient
             color={color}
-            faded={checked && isEditable}
+            faded={checked && editable}
             {...gradientProps}
           />
         )}
