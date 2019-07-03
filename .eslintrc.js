@@ -5,7 +5,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:react/recommended',
   ],
-  plugins: ['prettier', 'react-native'],
+  plugins: ['prettier', 'react-hooks', 'react-native'],
   env: {
     'react-native/react-native': true,
   },
@@ -14,7 +14,7 @@ module.exports = {
     'no-unused-vars': ['off'],
     'react-native/no-unused-styles': 2,
     'react-native/split-platform-components': 2,
-    'react-native/no-inline-styles': 2,
+    'react-native/no-inline-styles': 0,
     'react-native/no-color-literals': 2,
   },
   parserOptions: {

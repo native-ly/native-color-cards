@@ -3,10 +3,10 @@ import Color from 'color'
 export const checkColor = (item: string): string => {
   return Color(item).isDark()
     ? Color(item)
-        .lighten(0.1)
+        .lighten(0.5)
         .toString()
     : Color(item)
-        .darken(0.1)
+        .darken(0.5)
         .toString()
 }
 

@@ -97,17 +97,19 @@ export const Card = ({
           ))}
 
         <Info>
-          {title && (
+          {title ? (
             <Title isPrimary color={color} numberOfLines={2}>
               {title}
             </Title>
-          )}
+          ) : null}
 
-          {subtitle && !flat && (
-            <Title numberOfLines={1} color={color}>
-              {subtitle}
-            </Title>
-          )}
+          {subtitle
+            ? !flat && (
+                <Title numberOfLines={1} color={color}>
+                  {subtitle}
+                </Title>
+              )
+            : null}
         </Info>
 
         {gradient && !flat && (
