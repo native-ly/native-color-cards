@@ -5,6 +5,6 @@ tsconfig.json
 .prettierrc
 
 .eslintrc.js
-index.d.ts
+/index.d.ts
 webpack.config.js
 yarn-error.log
