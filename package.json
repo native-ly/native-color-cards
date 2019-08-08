@@ -5,6 +5,7 @@
   "author": "Jakub Biesiada",
   "license": "MIT",
   "main": "lib/native-color-cards.min.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "release": "npm run prettier && npm run lint && npm run build:dev && npm run build",
     "build": "webpack --env build",
