@@ -7,7 +7,7 @@
   "main": "lib/native-color-cards.min.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "release": "npm run prettier && npm run lint && npm run build:dev && npm run build",
+    "release": "rimraf lib/* && npm run prettier && npm run lint && npm run build:dev && npm run build",
     "build": "webpack --env build",
     "build:dev": "webpack --env dev",
     "watch": "npm run build -- --watch",
