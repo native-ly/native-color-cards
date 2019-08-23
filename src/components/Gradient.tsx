@@ -7,7 +7,7 @@ import { Theme } from '../interfaces'
 
 import { darker, lighter } from '../helpers'
 
-export const Gradient = ({ color, faded }: Theme): JSX.Element => (
+export const Gradient = ({ color, faded }: Theme) => (
   <Base
     start={[0.2, 0]}
     end={[0.8, 1]}

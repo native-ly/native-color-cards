@@ -6,12 +6,7 @@ import { Theme } from '../interfaces'
 
 import { Base, BlurLayer } from '../bases/Options'
 
-export const Options = ({
-  color,
-  faded,
-  isDark,
-  ...props
-}: Theme): JSX.Element => (
+export const Options = ({ color, faded, isDark, ...props }: Theme) => (
   <Base {...props}>
     <BlurLayer
       faded={faded}

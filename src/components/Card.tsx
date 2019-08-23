@@ -32,11 +32,11 @@ export const Card = ({
   subtitle = '',
   title = '',
   ...props
-}: Props): JSX.Element => {
+}: Props) => {
   const { editable, setEditable } = useContext(ListContext)
 
-  const [checked, setChecked] = useState<boolean>(false)
   const [scale, setScale] = useState<number>(0.96)
+  const [checked, setChecked] = useState(false)
 
   const animatedValue = new Animated.Value(0)
 
