@@ -1,3 +1,2 @@
-export { List } from './components/List';
-export { Card } from './components/Card';
-export { Save } from './components/Save';
+export { ColorCardsProvider } from './context';
+export { List, Card } from './components';

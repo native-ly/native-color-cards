@@ -10,7 +10,7 @@ export const Title = ({
   isPrimary = false,
   ...props
 }: TitleProps) => (
-  <Base color={color} isPrimary={isPrimary} {...props}>
+  <Base {...props} color={color} isPrimary={isPrimary}>
     {children}
   </Base>
 )

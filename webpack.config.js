@@ -15,24 +15,26 @@ module.exports = env => {
 
   return {
     mode,
-    entry: `${__dirname}/src/index.tsx`,
+    entry: `${__dirname}/src/index.ts`,
     externals: [
       'color',
       'expo-blur',
       'expo-haptics',
       'expo-linear-gradient',
-      '@expo/vector-icons',
       'react',
       'react-native',
+      'react-native-drag-drop-grid-library',
+      'react-native-drag-sort',
       'react-native-touchable-scale',
-      'styled-components/native',
+      'react-native-vector-icons/Ionicons',
+      'styled-components/native'
     ],
     devtool,
     output: {
       path: `${__dirname}/lib`,
       filename: outputFile,
       library: 'NativeColorPicker',
-      libraryTarget: 'commonjs2',
+      libraryTarget: 'commonjs2'
     },
     module: {
       rules: [
@@ -41,10 +43,10 @@ module.exports = env => {
           loader: 'ts-loader',
           exclude: /node_modules/,
           resolve: {
-            extensions: ['.tsx'],
-          },
-        },
-      ],
-    },
+            extensions: ['.tsx', '.ts']
+          }
+        }
+      ]
+    }
   }
 }

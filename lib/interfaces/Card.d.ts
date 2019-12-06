@@ -1,5 +1,4 @@
 import { TouchableOpacityProps, ViewProps } from 'react-native';
-import { LinearGradientProps } from 'expo';
 import { Color } from '../types';
 export interface Card {
     readonly backgroundColor: string;
@@ -7,7 +6,7 @@ export interface Card {
     readonly color?: Color;
     readonly flat?: boolean;
     readonly gradient?: boolean;
-    readonly gradientProps?: LinearGradientProps;
+    readonly gradientProps?: any;
     readonly icon?: string;
     readonly onLongPress: () => void;
     readonly optionsProps?: TouchableOpacityProps;

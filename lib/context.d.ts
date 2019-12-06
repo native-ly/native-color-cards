@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { ReactChildren } from 'react';
+interface Props {
+    children: ReactChildren;
+}
 export declare const ListContext: React.Context<{
-    editable: boolean;
-    setEditable: (state: boolean) => void;
-    checked: boolean;
-    check: (state: boolean) => void;
+    editable?: boolean | undefined;
+    setEditable?: ((state: boolean) => void) | undefined;
 }>;
+export declare const ColorCardsProvider: ({ children, }: Props) => JSX.Element;
+export {};

@@ -1,1 +1,2 @@
-export declare const Base: import("styled-components").StyledComponent<any, any, object, string | number | symbol>;
+import { FlatList } from 'react-native';
+export declare const Base: import("styled-components").StyledComponent<typeof FlatList, any, {}, never>;
