@@ -4,14 +4,13 @@
   "description": "Color cards (Shortcuts.app style) for React Native",
   "author": "Jakub Biesiada",
   "license": "MIT",
-  "main": "lib/native-color-cards.min.js",
+  "main": "lib/native-color-cards.cjs.js",
+  "module": "lib/native-color-cards.esm.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "release": "rimraf lib/* && npm run prettier && npm run lint && npm run build:dev && npm run build",
-    "build": "webpack --env build",
-    "build:dev": "webpack --env dev",
+    "release": "rimraf lib/* && npm run prettier && npm run lint && npm run build",
+    "build": "rollup -c",
     "watch": "npm run build -- --watch",
-    "watch:dev": "npm run build:dev -- --watch",
     "lint": "eslint --fix 'src/**/*.{tsx,ts}'",
     "prettier": "prettier --write 'src/**/*.{tsx,ts}'"
   },
@@ -19,7 +18,13 @@
     "type": "git",
     "url": "https://github.com/JB1905/native-color-cards.git"
   },
-  "keywords": ["TypeScript", "React", "React Native", "colors", "cards"],
+  "keywords": [
+    "TypeScript",
+    "React",
+    "React Native",
+    "colors",
+    "cards"
+  ],
   "bugs": {
     "url": "https://github.com/JB1905/native-color-cards/issues"
   },
@@ -32,36 +37,36 @@
     "react-native-drag-drop-grid-library": "^1.0.7",
     "react-native-drag-sort": "^1.3.6",
     "react-native-draggable-animation-list": "^1.1.1",
-    "react-native-draggable-flatlist": "^2.0.10",
+    "react-native-draggable-flatlist": "^2.0.12",
     "react-native-draggable-grid": "^1.1.1",
     "react-native-draggable-list": "^1.0.0",
     "react-native-sortable-grid": "^2.0.0",
     "react-native-touchable-scale": "^2.1.0",
     "react-native-vector-icons": "^6.6.0",
-    "styled-components": "^4.4.1"
+    "styled-components": "^5.0.0"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^7.0.0",
     "@types/color": "^3.0.1",
     "@types/expo": "^33.0.1",
     "@types/react": "^16.9.17",
     "@types/react-native-vector-icons": "^6.4.5",
-    "@types/styled-components": "^4.4.1",
-    "@typescript-eslint/parser": "^2.14.0",
+    "@types/styled-components": "^4.4.2",
+    "@typescript-eslint/parser": "^2.16.0",
     "eslint": "6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
     "eslint-plugin-react-native": "^3.8.1",
-    "husky": "^3.1.0",
+    "husky": "^4.0.7",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
     "react": "^16.12.0",
     "react-native": "^0.61.5",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.4",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "rollup-plugin-terser": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "typescript": "^3.7.4"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -73,6 +78,10 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{tsx,ts}": ["npm run prettier", "npm run lint", "git add"]
+    "src/**/*.{tsx,ts}": [
+      "npm run prettier",
+      "npm run lint",
+      "git add"
+    ]
   }
 }
