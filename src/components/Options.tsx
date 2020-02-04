@@ -13,7 +13,12 @@ export const Options = ({ color, faded, isDark, ...props }: Theme) => (
       tint={Color(isDark).isDark() ? 'dark' : 'light'}
       intensity={60}
     >
-      <Ionicons name="ios-more" color={color} size={22} />
+      <Ionicons
+        name="ios-more"
+        color={color}
+        size={22}
+        style={{ paddingTop: 2 }}
+      />
     </BlurLayer>
   </Base>
 )

@@ -44,7 +44,7 @@ export const Card = ({
   }
 
   const longPress = () => {
-    setEditable!(true)
+    setEditable(true)
 
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
 
@@ -81,7 +81,7 @@ export const Card = ({
         activeScale={!scalable || flat ? 1 : 0.96}
         onPress={() => !flat && press()}
         as={flat ? TouchableOpacity : Base}
-        onLongPress={() => !flat && longPress()}
+        onLongPress={() => !flat && !editable && longPress()}
         color={backgroundColor}
         shadow={shadow && !flat}
         flat={flat}

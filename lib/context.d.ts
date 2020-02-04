@@ -1,10 +1,9 @@
 import React, { ReactChildren } from 'react';
 interface Props {
-    children: ReactChildren;
+    readonly children: ReactChildren;
+    readonly data?: unknown[] | null;
+    readonly onDataChange: (state: any[]) => void;
 }
-export declare const ListContext: React.Context<{
-    editable?: boolean | undefined;
-    setEditable?: ((state: boolean) => void) | undefined;
-}>;
-export declare const ColorCardsProvider: ({ children, }: Props) => JSX.Element;
+export declare const ListContext: React.Context<any>;
+export declare const ColorCardsProvider: ({ children, data, onDataChange }: Props) => JSX.Element;
 export {};

@@ -7,6 +7,7 @@ export const Base = styled(TouchableScale)`
     padding: 9px 11px;
     height: 114px;
     margin: 5px;
+    width: 190px;
 
     background-color: ${color};
 
