@@ -14,6 +14,6 @@ export interface Card {
   readonly optionsProps?: TouchableOpacityProps
   readonly scalable?: boolean
   readonly shadow?: boolean
-  readonly subtitle?: string
   readonly title?: string
+  readonly subtitle?: string
 }

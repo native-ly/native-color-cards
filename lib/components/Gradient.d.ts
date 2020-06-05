@@ -1,2 +1,3 @@
+import React from 'react';
 import { Theme } from '../interfaces';
-export declare const Gradient: ({ color, faded }: Theme) => JSX.Element;
+export declare const Gradient: React.FC<Theme>;

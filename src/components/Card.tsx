@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react'
-import { Animated, TouchableOpacity } from 'react-native'
-import * as Haptics from 'expo-haptics'
+import { Animated, TouchableOpacity, View } from 'react-native'
+import TouchableScale from 'react-native-touchable-scale'
+import Icon from 'native-icons'
 import Color from 'color'
 
 import { Title } from './Title'
 import { Options } from './Options'
 import { Gradient } from './Gradient'
-import { Check } from './CheckBox'
+import { CheckBox } from './CheckBox'
 
 import { animations, checkColor } from '../helpers'
 
@@ -14,10 +15,7 @@ import { Card as Props } from '../interfaces'
 
 import { ListContext } from '../context'
 
-import { Base, Info } from '../bases/Card'
-import { Icon } from '../bases/Icon'
-
-export const Card = ({
+export const Card: React.FC<Props> = ({
   backgroundColor,
   checkBoxProps,
   color = 'adjust',
@@ -32,26 +30,28 @@ export const Card = ({
   subtitle = '',
   title = '',
   ...props
-}: Props) => {
+}) => {
   const { editable, setEditable } = useContext(ListContext)
 
   const [checked, setChecked] = useState(false)
 
-  const animatedValue = new Animated.Value(0)
+  // const animatedValue = new Animated.Value(0)
 
-  const press = () => {
-    editable && setChecked(!checked)
-  }
+  // const press = () => {
+  //   if (editable) {
+  //     setChecked(!checked)
+  //   }
+  // }
 
-  const longPress = () => {
-    setEditable(true)
+  // const longPress = () => {
+  //   setEditable(true)
 
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
+  //   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
 
-    onLongPress()
-  }
+  //   onLongPress()
+  // }
 
-  animations(animatedValue)
+  // animations(animatedValue)
 
   if (color === 'adjust') {
     color = checkColor(backgroundColor)
@@ -61,27 +61,27 @@ export const Card = ({
 
   return (
     <Animated.View
-      style={{
-        flex: 1,
-        transform: [
-          {
-            rotate:
-              editable && !flat
-                ? animatedValue.interpolate({
-                    inputRange: [-1, 1],
-                    outputRange: ['-0.06rad', '0.06rad'],
-                  })
-                : '0rad',
-          },
-        ],
-      }}
+    // style={{
+    //   flex: 1,
+    //   transform: [
+    //     {
+    //       rotate:
+    //         editable && !flat
+    //           ? animatedValue.interpolate({
+    //               inputRange: [-1, 1],
+    //               outputRange: ['-0.06rad', '0.06rad'],
+    //             })
+    //           : '0rad',
+    //     },
+    //   ],
+    // }}
     >
-      <Base
+      <TouchableScale
         {...props}
         activeScale={!scalable || flat ? 1 : 0.96}
-        onPress={() => !flat && press()}
-        as={flat ? TouchableOpacity : Base}
-        onLongPress={() => !flat && !editable && longPress()}
+        // onPress={() => !flat && press()}
+        // as={flat ? TouchableOpacity : Base}
+        // onLongPress={() => !flat && !editable && longPress()}
         color={backgroundColor}
         shadow={shadow && !flat}
         flat={flat}
@@ -90,33 +90,48 @@ export const Card = ({
 
         {!flat &&
           (editable ? (
-            <Check {...checkBoxProps} checked={checked} />
+            <CheckBox {...checkBoxProps} checked={checked} />
           ) : (
-            <Options {...optionsProps} color={color} isDark={backgroundColor} />
+            <Options
+              {...optionsProps}
+              color={color}
+              //  dark={backgroundColor}
+            />
           ))}
 
-        <Info>
-          {title ? (
-            <Title isPrimary color={color} numberOfLines={2}>
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-end',
+            position: 'absolute',
+            width: '100%',
+            height: 70,
+            bottom: 8,
+            left: 0,
+          }}
+        >
+          {!!title && (
+            <Title primary color={color} numberOfLines={2}>
               {title}
             </Title>
-          ) : null}
+          )}
 
-          {subtitle && !flat ? (
+          {!!subtitle && !flat && (
             <Title numberOfLines={1} color={color}>
               {subtitle}
             </Title>
-          ) : null}
-        </Info>
+          )}
+        </View>
 
         {gradient && !flat && (
           <Gradient
             {...gradientProps}
             color={color}
-            faded={checked && editable}
+            // faded={checked && editable}
           />
         )}
-      </Base>
+      </TouchableScale>
     </Animated.View>
   )
 }

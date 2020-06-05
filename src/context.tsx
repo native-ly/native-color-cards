@@ -1,21 +1,31 @@
-import React, { ReactChildren, useState } from 'react'
+import React, { useState } from 'react'
 
 interface Props {
-  readonly children: ReactChildren
-  readonly data?: unknown[] | null
-  readonly onDataChange: (state: any[]) => void
+  // readonly data?: unknown[] | null
+  // readonly onDataChange: (state: any[]) => void
 }
 
-// export const ListContext = React.createContext<{
-//   editable?: boolean
-//   setEditable?: (state: boolean) => void
-//   data: unknown[] | null
-//   onDataChange?: (state: any[]) => void
-// }>({})
+export const ListContext = React.createContext<{
+  editable?: boolean
+  setEditable: React.Dispatch<React.SetStateAction<boolean>>
+  data: any
+  onDataChange: (state: any[]) => void
+  columns?: number
+  setColumns: React.Dispatch<React.SetStateAction<number>>
+}>({
+  editable: undefined,
+  setEditable: () => undefined,
+  // data: [],
+  // onDataChange: () => undefined,
+  columns: undefined,
+  setColumns: () => undefined,
+})
 
-export const ListContext = React.createContext<any>({})
-
-export const ColorCardsProvider = ({ children, data, onDataChange }: Props) => {
+export const ColorCardsProvider: React.FC<Props> = ({
+  children,
+  // data,
+  // onDataChange,
+}) => {
   const [editable, setEditable] = useState(false)
   const [columns, setColumns] = useState(2)
 
@@ -23,9 +33,10 @@ export const ColorCardsProvider = ({ children, data, onDataChange }: Props) => {
     <ListContext.Provider
       value={{
         editable,
-        setEditable: (state: any) => setEditable(state),
-        data,
-        onDataChange,
+        setEditable,
+        // setEditable: (state: any) => setEditable(state),
+        // data,
+        // onDataChange,
         columns,
         setColumns,
       }}

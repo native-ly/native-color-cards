@@ -1,1 +1,1 @@
-export { Color } from './Color'
+export type { Color } from './Color'

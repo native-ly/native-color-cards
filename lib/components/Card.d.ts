@@ -1,2 +1,3 @@
+import React from 'react';
 import { Card as Props } from '../interfaces';
-export declare const Card: ({ backgroundColor, checkBoxProps, color, flat, gradient, gradientProps, icon, onLongPress, optionsProps, scalable, shadow, subtitle, title, ...props }: Props) => JSX.Element;
+export declare const Card: React.FC<Props>;

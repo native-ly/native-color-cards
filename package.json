@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JB1905/native-color-cards.git"
+    "url": "https://github.com/native-ly/native-color-cards.git"
   },
   "keywords": [
     "TypeScript",
@@ -26,40 +26,40 @@
     "cards"
   ],
   "bugs": {
-    "url": "https://github.com/JB1905/native-color-cards/issues"
+    "url": "https://github.com/native-ly/native-color-cards/issues"
   },
-  "homepage": "https://github.com/JB1905/native-color-cards#readme",
+  "homepage": "https://github.com/native-ly/native-color-cards#readme",
   "dependencies": {
     "color": "^3.1.2",
-    "expo-blur": "^8.0.0",
-    "expo-haptics": "^8.0.0",
-    "expo-linear-gradient": "^8.0.0",
-    "react-native-drag-sort": "^2.1.0",
-    "react-native-touchable-scale": "^2.1.0",
+    "expo-blur": "^8.1.0",
+    "expo-haptics": "^8.1.0",
+    "expo-linear-gradient": "^8.1.0",
+    "react-native-drag-sort": "^2.1.1",
+    "react-native-touchable-scale": "^2.1.1",
     "react-native-vector-icons": "^6.6.0",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.1.0"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-node-resolve": "^7.1.3",
     "@types/color": "^3.0.1",
     "@types/expo": "^33.0.1",
-    "@types/react": "^16.9.23",
+    "@types/react": "^16.9.34",
     "@types/react-native-vector-icons": "^6.4.5",
-    "@types/styled-components": "^5.0.1",
-    "@typescript-eslint/parser": "^2.23.0",
+    "@types/styled-components": "^5.1.0",
+    "@typescript-eslint/parser": "^2.29.0",
     "eslint": "6.8.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^2.5.0",
+    "eslint-plugin-react-hooks": "^3.0.0",
     "eslint-plugin-react-native": "^3.8.1",
-    "husky": "^4.2.3",
-    "lint-staged": "^10.0.8",
-    "prettier": "^1.19.1",
-    "react": "^16.12.0",
-    "react-native": "^0.61.5",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.7",
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-native": "^0.62.0",
     "rollup-plugin-terser": "^5.3.0",
-    "rollup-plugin-typescript2": "^0.26.0",
+    "rollup-plugin-typescript2": "^0.27.0",
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
