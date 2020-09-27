@@ -3,6 +3,7 @@ import { StyleSheet, Text } from 'react-native'
 
 import { Title as TitleProps } from '../interfaces'
 
+// TODO
 export const Title: React.FC<TitleProps> = ({
   color,
   children,
@@ -14,24 +15,29 @@ export const Title: React.FC<TitleProps> = ({
     {...props}
     style={StyleSheet.flatten([
       style,
-      {
-        left: 11,
-        right: 11,
-        color,
-      },
-      primary
-        ? {
-            fontWeight: '600',
-            fontSize: 16,
-          }
-        : {
-            marginTop: 4,
-            opacity: 0.8,
-            fontWeight: '500',
-            fontSize: 12,
-          },
+      { color },
+      styles.x,
+      primary ? styles.y : styles.z,
     ])}
   >
     {children}
   </Text>
 )
+
+// TODO
+const styles = StyleSheet.create({
+  x: {
+    left: 11,
+    right: 11,
+  },
+  y: {
+    fontWeight: '600',
+    fontSize: 16,
+  },
+  z: {
+    marginTop: 4,
+    opacity: 0.8,
+    fontWeight: '500',
+    fontSize: 12,
+  },
+})

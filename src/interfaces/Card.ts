@@ -10,7 +10,8 @@ export interface Card {
   readonly gradient?: boolean
   readonly gradientProps?: any
   readonly icon?: string
-  readonly onLongPress: () => void
+  // readonly onLongPress: () => void
+  onLongPress: () => void
   readonly optionsProps?: TouchableOpacityProps
   readonly scalable?: boolean
   readonly shadow?: boolean

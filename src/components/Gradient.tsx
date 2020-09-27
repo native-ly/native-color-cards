@@ -8,30 +8,34 @@ import { Theme } from '../interfaces'
 
 import { darker, lighter } from '../helpers'
 
-export const Gradient: React.FC<Theme> = ({
-  color,
-  faded,
-  style,
-  ...props
-}) => (
-  <LinearGradient
-    {...props}
-    start={[0.2, 0]}
-    end={[0.8, 1]}
-    colors={
-      faded
-        ? ['#fff4', '#fff4']
-        : Color(color).isDark()
-        ? darker(color)
-        : lighter(color)
-    }
-    style={StyleSheet.flatten([
-      style,
-      {
-        ...StyleSheet.absoluteFillObject,
-        borderRadius: 10,
-        zIndex: -1,
-      },
-    ])}
-  />
-)
+const GRADIENT_START = [0.2, 0]
+const GRADIENT_END = [0.8, 1]
+
+// TODO
+export const Gradient = ({ color, faded, style, ...props }: Theme) => {
+  // TODO
+  const newLocal = faded
+    ? ['#fff4', '#fff4']
+    : Color(color).isDark()
+    ? darker(color)
+    : lighter(color)
+
+  return (
+    <LinearGradient
+      {...props}
+      start={GRADIENT_START}
+      end={GRADIENT_END}
+      colors={newLocal}
+      style={StyleSheet.flatten([style, styles.gradient])}
+    />
+  )
+}
+
+// TODO
+const styles = StyleSheet.create({
+  gradient: {
+    ...StyleSheet.absoluteFillObject,
+    borderRadius: 10,
+    zIndex: -1,
+  },
+})

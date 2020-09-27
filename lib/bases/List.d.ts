@@ -1,1 +1,1 @@
-export declare const Base: any;
+export declare const Base: any

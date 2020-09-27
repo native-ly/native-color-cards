@@ -1,1 +1,1 @@
-export declare type Color = 'adjust' | 'contrast' | string;
+export declare type Color = 'adjust' | 'contrast' | string

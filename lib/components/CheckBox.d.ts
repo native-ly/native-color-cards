@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 export declare const Check: React.FC<{
-    checked: boolean;
-}>;
+  checked: boolean
+}>

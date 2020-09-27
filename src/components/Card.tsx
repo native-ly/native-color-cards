@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Animated, TouchableOpacity, View } from 'react-native'
+import { Animated, TouchableOpacity, View, StyleSheet } from 'react-native'
 import TouchableScale from 'react-native-touchable-scale'
 import Icon from 'native-icons'
 import Color from 'color'
@@ -15,7 +15,8 @@ import { Card as Props } from '../interfaces'
 
 import { ListContext } from '../context'
 
-export const Card: React.FC<Props> = ({
+// TODO
+export const Card = ({
   backgroundColor,
   checkBoxProps,
   color = 'adjust',
@@ -30,7 +31,8 @@ export const Card: React.FC<Props> = ({
   subtitle = '',
   title = '',
   ...props
-}) => {
+}: Props) => {
+  // TODO add checking
   const { editable, setEditable } = useContext(ListContext)
 
   const [checked, setChecked] = useState(false)
@@ -99,18 +101,7 @@ export const Card: React.FC<Props> = ({
             />
           ))}
 
-        <View
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end',
-            position: 'absolute',
-            width: '100%',
-            height: 70,
-            bottom: 8,
-            left: 0,
-          }}
-        >
+        <View style={styles.x}>
           {!!title && (
             <Title primary color={color} numberOfLines={2}>
               {title}
@@ -135,3 +126,17 @@ export const Card: React.FC<Props> = ({
     </Animated.View>
   )
 }
+
+// TODO
+const styles = StyleSheet.create({
+  x: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    position: 'absolute',
+    width: '100%',
+    height: 70,
+    bottom: 8,
+    left: 0,
+  },
+})

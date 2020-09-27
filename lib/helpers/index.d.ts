@@ -1,3 +1,3 @@
-export { animations } from './animations';
-export { darker, lighter, checkColor } from './colors';
-export { flex, size } from './mixin';
+export { animations } from './animations'
+export { darker, lighter, checkColor } from './colors'
+export { flex, size } from './mixin'
