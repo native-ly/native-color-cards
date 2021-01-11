@@ -1,4 +1,4 @@
-# [NativeColorCards](https://github.com/jb1905/native-color-cards)
+# [NativeColorCards](https://github.com/jb1905/native-color-cards) (WIP)
 
 [![NPM version](http://img.shields.io/npm/v/native-color-cards.svg?style=flat-square)](https://www.npmjs.com/package/native-color-cards)
 [![NPM downloads](http://img.shields.io/npm/dm/native-color-cards.svg?style=flat-square)](https://www.npmjs.com/package/native-color-cards)
