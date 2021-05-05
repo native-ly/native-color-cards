@@ -1,8 +1,11 @@
 # [NativeColorCards](https://github.com/native-ly/native-color-cards)
 
-[![NPM version](https://img.shields.io/npm/v/native-color-cards.svg?style=flat-square)](https://www.npmjs.com/package/native-color-cards)
-[![NPM downloads](https://img.shields.io/npm/dm/native-color-cards.svg?style=flat-square)](https://www.npmjs.com/package/native-color-cards)
-[![run in expo snack](https://img.shields.io/badge/Run%20in%20Snack-4630EB.svg?style=flat-square&logo=EXPO&labelColor=FFF&logoColor=000)](https://snack.expo.io/@jbiesiada/5727bc)
+[![NPM version](https://img.shields.io/npm/v/native-color-cards?style=flat-square)](https://www.npmjs.com/package/native-color-cards)
+[![NPM downloads](https://img.shields.io/npm/dm/native-color-cards?style=flat-square)](https://www.npmjs.com/package/native-color-cards)
+[![NPM license](https://img.shields.io/npm/l/native-color-cards?style=flat-square)](https://www.npmjs.com/package/native-color-cards)
+[![run in expo snack](https://img.shields.io/badge/Run%20in%20Snack-4630EB?style=flat-square&logo=EXPO&labelColor=FFF&logoColor=000)](https://snack.expo.io/@jbiesiada/native-color-cards)
+[![Codecov](https://img.shields.io/codecov/c/github/native-ly/native-color-cards?style=flat-square)](https://codecov.io/gh/native-ly/native-color-cards)
+[![Travis](https://img.shields.io/travis/com/native-ly/native-color-cards/master?style=flat-square)](https://travis-ci.com/native-ly/native-color-cards)
 
 ## About
 
