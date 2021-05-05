@@ -10,12 +10,12 @@ module.exports = {
     'react-native/react-native': true,
   },
   rules: {
-    'react/prop-types': 0,
-    'no-unused-vars': ['off'],
-    'react-native/no-unused-styles': 2,
-    'react-native/split-platform-components': 2,
-    'react-native/no-inline-styles': 0,
-    'react-native/no-color-literals': 2,
+    'react-native/no-unused-styles': 'error',
+    'react-native/split-platform-components': 'error',
+    'react-native/no-color-literals': 'error',
+    'react-native/no-inline-styles': 'off',
+    'react/prop-types': 'off',
+    'no-unused-vars': 'off',
   },
   parserOptions: {
     ecmaVersion: 6,

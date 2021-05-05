@@ -1,37 +1,22 @@
-import React, { useContext } from 'react'
-import { Dimensions, ScrollView, FlatListProps, StyleSheet } from 'react-native'
-import DragSortableView from 'react-native-drag-sort/DragSortableView'
+import React from 'react'
+import { ScrollView } from 'react-native'
+import { DragSortableView } from 'react-native-drag-sort'
 
-import { ListContext } from '../context'
+import { StoreProvider } from '../contexts/StoreContext'
+import { ThemeProvider } from '../contexts/ThemeContext'
 
-// TODO
-export const List: React.FC<FlatListProps<DragSortableView>> = ({
-  renderItem,
-  ...props // TODO
-}) => {
-  // TODO add checking
-  const { data } = useContext(ListContext)
-
-  const { width } = Dimensions.get('window') // TODO replace with hook
-
-  return (
-    <ScrollView scrollEnabled contentContainerStyle={styles.x}>
-      <DragSortableView
-        {...props} // TODO
-        dataSource={data}
-        parentWidth={width}
-        childrenHeight={124}
-        childrenWidth={width / 2 - 8}
-        renderItem={renderItem}
-      />
-    </ScrollView>
-  )
+interface Props {
+  compact?: boolean
 }
 
-// TODO
-const styles = StyleSheet.create({
-  x: {
-    paddingLeft: 12,
-    paddingVertical: 12,
-  },
-})
+export const List = () => {
+  return (
+    <StoreProvider>
+      <ThemeProvider>
+        <ScrollView scrollEnabled contentContainerStyle={null}>
+          {/* <DragSortableView {...props} renderItem={renderItem} /> */}
+        </ScrollView>
+      </ThemeProvider>
+    </StoreProvider>
+  )
+}
