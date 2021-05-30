@@ -4,15 +4,15 @@
   "description": "Color cards (Shortcuts.app style) for React Native",
   "author": "Jakub Biesiada",
   "license": "MIT",
-  "main": "lib/native-color-cards.min.js",
+  "main": "lib/native-color-cards.cjs.js",
+  "module": "lib/native-color-cards.esm.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "release": "npm run prettier && npm run lint && npm run build:dev && npm run build",
-    "build": "webpack --env build",
-    "build:dev": "webpack --env dev",
+    "release": "rimraf lib/* && npm run prettier && npm run lint && npm run build",
+    "build": "rollup -c",
     "watch": "npm run build -- --watch",
-    "watch:dev": "npm run build:dev -- --watch",
-    "lint": "eslint --fix 'src/**/*.tsx'",
-    "prettier": "prettier --write 'src/**/*.tsx'"
+    "lint": "eslint --fix 'src/**/*.{tsx,ts}'",
+    "prettier": "prettier --write 'src/**/*.{tsx,ts}'"
   },
   "repository": {
     "type": "git",
@@ -31,36 +31,40 @@
   "homepage": "https://github.com/JB1905/native-color-cards#readme",
   "dependencies": {
     "color": "^3.1.2",
-    "react-native-draggable-grid": "^1.1.0",
-    "react-native-sortable-grid": "^2.0.0",
-    "react-native-touchable-scale": "^2.0.0",
-    "styled-components": "^4.3.0"
+    "expo-blur": "^8.0.0",
+    "expo-haptics": "^8.0.0",
+    "expo-linear-gradient": "^8.0.0",
+    "react-native-drag-sort": "^2.1.0",
+    "react-native-touchable-scale": "^2.1.0",
+    "react-native-vector-icons": "^6.6.0",
+    "styled-components": "^5.0.1"
   },
   "devDependencies": {
-    "@types/color": "^3.0.0",
-    "@types/expo": "^32.0.13",
-    "@types/expo__vector-icons": "^9.0.1",
-    "@types/react": "^16.8.19",
-    "@types/styled-components": "^4.1.16",
-    "@typescript-eslint/parser": "^1.9.0",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.13.0",
-    "eslint-plugin-react-native": "^3.7.0",
-    "expo-blur": "^5.0.1",
-    "expo-haptics": "^5.0.1",
-    "expo-linear-gradient": "^5.0.1",
-    "prettier": "^1.17.1",
-    "react": "16.8.6",
-    "ts-loader": "^6.0.2",
-    "typescript": "^3.5.1",
-    "webpack": "^4.33.0",
-    "webpack-cli": "^3.3.2"
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@types/color": "^3.0.1",
+    "@types/expo": "^33.0.1",
+    "@types/react": "^16.9.23",
+    "@types/react-native-vector-icons": "^6.4.5",
+    "@types/styled-components": "^5.0.1",
+    "@typescript-eslint/parser": "^2.23.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "eslint-plugin-react-native": "^3.8.1",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
+    "react": "^16.12.0",
+    "react-native": "^0.61.5",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-typescript2": "^0.26.0",
+    "typescript": "^3.8.3"
   },
   "peerDependencies": {
-    "expo": ">=33.0.0",
-    "react": ">=16.8.0"
+    "react": ">=16.8.0",
+    "react-native": ">=0.59.0"
   },
   "husky": {
     "hooks": {
@@ -68,10 +72,9 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{tsx}": [
+    "src/**/*.{tsx,ts}": [
       "npm run prettier",
-      "npm run lint",
-      "git add"
+      "npm run lint"
     ]
   }
 }

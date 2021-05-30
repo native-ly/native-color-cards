@@ -32,17 +32,15 @@ export const Card = ({
   subtitle = '',
   title = '',
   ...props
-}: Props): JSX.Element => {
+}: Props) => {
   const { editable, setEditable } = useContext(ListContext)
 
-  const [checked, setChecked] = useState<boolean>(false)
-  const [scale, setScale] = useState<number>(0.96)
+  const [checked, setChecked] = useState(false)
 
   const animatedValue = new Animated.Value(0)
 
   const press = () => {
     editable && setChecked(!checked)
-    setScale(scalable ? 0.96 : 1)
   }
 
   const longPress = () => {
@@ -64,6 +62,7 @@ export const Card = ({
   return (
     <Animated.View
       style={{
+        flex: 1,
         transform: [
           {
             rotate:
@@ -78,22 +77,22 @@ export const Card = ({
       }}
     >
       <Base
-        activeScale={flat ? 1 : scale}
+        {...props}
+        activeScale={!scalable || flat ? 1 : 0.96}
         onPress={() => !flat && press()}
         as={flat ? TouchableOpacity : Base}
-        onLongPress={() => !flat && longPress()}
+        onLongPress={() => !flat && !editable && longPress()}
         color={backgroundColor}
         shadow={shadow && !flat}
         flat={flat}
-        {...props}
       >
         {icon && <Icon name={icon} color={color} size={30} />}
 
         {!flat &&
           (editable ? (
-            checked && <Check {...checkBoxProps} />
+            <Check {...checkBoxProps} checked={checked} />
           ) : (
-            <Options color={color} isDark={backgroundColor} {...optionsProps} />
+            <Options {...optionsProps} color={color} isDark={backgroundColor} />
           ))}
 
         <Info>
@@ -103,20 +102,18 @@ export const Card = ({
             </Title>
           ) : null}
 
-          {subtitle
-            ? !flat && (
-                <Title numberOfLines={1} color={color}>
-                  {subtitle}
-                </Title>
-              )
-            : null}
+          {subtitle && !flat ? (
+            <Title numberOfLines={1} color={color}>
+              {subtitle}
+            </Title>
+          ) : null}
         </Info>
 
         {gradient && !flat && (
           <Gradient
+            {...gradientProps}
             color={color}
             faded={checked && editable}
-            {...gradientProps}
           />
         )}
       </Base>

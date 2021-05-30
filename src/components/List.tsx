@@ -1,21 +1,24 @@
-import React, { useState } from 'react'
-import { FlatListProps } from 'react-native'
-
-import { Base } from '../bases/List'
+import React, { useContext } from 'react'
+import { Dimensions, ScrollView } from 'react-native'
+import DragSortableView from 'react-native-drag-sort/DragSortableView'
 
 import { ListContext } from '../context'
 
-export const List = (props: FlatListProps<any>) => {
-  const [editable, setEditable] = useState<boolean>(false)
+export const List = ({ renderItem, ...props }: any) => {
+  const { data } = useContext(ListContext)
+
+  const { width } = Dimensions.get('window')
 
   return (
-    <ListContext.Provider
-      value={{
-        editable,
-        setEditable: state => setEditable(state),
-      }}
-    >
-      <Base {...props} />
-    </ListContext.Provider>
+    <ScrollView scrollEnabled={true}>
+      <DragSortableView
+        // {...props}
+        dataSource={data}
+        parentWidth={width}
+        childrenHeight={114}
+        childrenWidth={width / 2}
+        renderItem={renderItem}
+      />
+    </ScrollView>
   )
 }

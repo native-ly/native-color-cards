@@ -1,7 +1,4 @@
-import { FlatList, Dimensions } from 'react-native'
 import styled from 'styled-components/native'
+import DragSortableView from 'react-native-drag-sort'
 
-export const Base = styled(FlatList)`
-  width: ${Dimensions.get('window').width};
-  padding: 13px;
-`
+export const Base = styled(DragSortableView)``

@@ -1,13 +1,9 @@
 import Color from 'color'
 
 export const checkColor = (item: string): string => {
-  return Color(item).isDark()
-    ? Color(item)
-        .lighten(0.5)
-        .toString()
-    : Color(item)
-        .darken(0.5)
-        .toString()
+  const color = Color(item)
+
+  return color[color.isDark() ? 'lighten' : 'darken'](0.5).toString()
 }
 
 export const darker = (item: string): [string, string] => [

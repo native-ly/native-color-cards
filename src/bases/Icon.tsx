@@ -1,5 +1,5 @@
 import styled from 'styled-components/native'
-import { Ionicons } from '@expo/vector-icons'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 export const Icon = styled(Ionicons)`
   width: 28px;
