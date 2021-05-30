@@ -1,22 +1,17 @@
 import React from 'react'
-import Color from 'color'
 
-import { Base } from '../bases/Gradient'
+import { LinearGradient } from '../imports'
 
-import { Theme } from '../interfaces'
+const GRADIENT_START = [0.2, 0]
+const GRADIENT_END = [0.8, 1]
 
-import { darker, lighter } from '../helpers'
-
-export const Gradient = ({ color, faded }: Theme): JSX.Element => (
-  <Base
-    start={[0.2, 0]}
-    end={[0.8, 1]}
-    colors={
-      faded
-        ? ['#fff4', '#fff4']
-        : Color(color).isDark()
-        ? darker(color)
-        : lighter(color)
-    }
-  />
-)
+export const Gradient = () => {
+  return (
+    <LinearGradient
+      // TODO
+      start={GRADIENT_START}
+      end={GRADIENT_END}
+      colors={null}
+    />
+  )
+}

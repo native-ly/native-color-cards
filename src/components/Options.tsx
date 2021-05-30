@@ -1,24 +1,15 @@
+import { BlurView } from 'expo-blur'
 import React from 'react'
-import { Ionicons } from '@expo/vector-icons'
-import Color from 'color'
+import { TouchableOpacity } from 'react-native'
+import Icon from 'native-icons'
+// import { Icon } from 'react-native-vector-icons/Icon'
 
-import { Theme } from '../interfaces'
-
-import { Base, BlurLayer } from '../bases/Options'
-
-export const Options = ({
-  color,
-  faded,
-  isDark,
-  ...props
-}: Theme): JSX.Element => (
-  <Base {...props}>
-    <BlurLayer
-      faded={faded}
-      tint={Color(isDark).isDark() ? 'dark' : 'light'}
-      intensity={60}
-    >
-      <Ionicons name="ios-more" color={color} size={22} />
-    </BlurLayer>
-  </Base>
-)
+export const Options = () => {
+  return (
+    <TouchableOpacity>
+      <BlurView>
+        <Icon />
+      </BlurView>
+    </TouchableOpacity>
+  )
+}

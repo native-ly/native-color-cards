@@ -1,10 +1,12 @@
 import React from 'react'
-import { Ionicons } from '@expo/vector-icons'
+import { View } from 'react-native'
+import Icon from 'native-icons'
 
-import { Base } from '../bases/CheckBox'
-
-export const Check = ({ checked, ...props }: { checked: boolean }) => (
-  <Base checked={checked} {...props}>
-    {checked ? <Ionicons color="#fff" name="md-checkmark" size={18} /> : null}
-  </Base>
-)
+// TODO
+export const CheckBox = ({ checked }) => {
+  return (
+    <View {...props}>
+      {checked && <Icon color="#fff" name="md-checkmark" size={18} />}
+    </View>
+  )
+}

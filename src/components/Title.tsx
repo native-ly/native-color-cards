@@ -1,16 +1,6 @@
 import React from 'react'
+import { Text } from 'react-native'
 
-import { Base } from '../bases/Title'
-
-import { Title as TitleProps } from '../interfaces'
-
-export const Title = ({
-  color,
-  children,
-  isPrimary = false,
-  ...props
-}: TitleProps) => (
-  <Base color={color} isPrimary={isPrimary} {...props}>
-    {children}
-  </Base>
-)
+export const Title = ({ children }: any) => {
+  return <Text>{children}</Text>
+}

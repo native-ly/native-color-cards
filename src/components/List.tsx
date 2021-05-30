@@ -1,21 +1,22 @@
-import React, { useState } from 'react'
-import { FlatListProps } from 'react-native'
+import React from 'react'
+import { ScrollView } from 'react-native'
+import { DragSortableView } from 'react-native-drag-sort'
 
-import { Base } from '../bases/List'
+import { StoreProvider } from '../contexts/StoreContext'
+import { ThemeProvider } from '../contexts/ThemeContext'
 
-import { ListContext } from '../context'
+interface Props {
+  compact?: boolean
+}
 
-export const List = (props: FlatListProps<any>) => {
-  const [editable, setEditable] = useState<boolean>(false)
-
+export const List = () => {
   return (
-    <ListContext.Provider
-      value={{
-        editable,
-        setEditable: state => setEditable(state),
-      }}
-    >
-      <Base {...props} />
-    </ListContext.Provider>
+    <StoreProvider>
+      <ThemeProvider>
+        <ScrollView scrollEnabled contentContainerStyle={null}>
+          {/* <DragSortableView {...props} renderItem={renderItem} /> */}
+        </ScrollView>
+      </ThemeProvider>
+    </StoreProvider>
   )
 }
