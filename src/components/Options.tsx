@@ -1,14 +1,14 @@
-import { BlurView } from 'expo-blur'
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import Icon from 'native-icons'
-// import { Icon } from 'react-native-vector-icons/Icon'
+import Color from 'color'
+import { BlurView } from '../imports'
 
-export const Options = () => {
+export const Options = ({}) => {
   return (
     <TouchableOpacity>
-      <BlurView>
-        <Icon />
+      <BlurView tint={Color(isDark).isDark() ? 'dark' : 'light'} intensity={60}>
+        <Icon name="" />
       </BlurView>
     </TouchableOpacity>
   )

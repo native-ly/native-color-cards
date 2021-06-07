@@ -8,22 +8,30 @@
   "module": "lib/native-color-cards.esm.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "release": "rimraf lib/* && npm run prettier && npm run lint && npm run build",
-    "build": "rollup -c",
+    "prepack": "npm run clean && npm run prettier && npm run lint && npm run build",
+    "clean": "rimraf lib/*",
+    "build": "tsc",
+    "test": "jest --coverage",
     "watch": "npm run build -- --watch",
+    "watch:test": "npm run test -- --watch",
     "lint": "eslint --fix 'src/**/*.{tsx,ts}'",
-    "prettier": "prettier --write 'src/**/*.{tsx,ts}'"
+    "prettier": "prettier --write 'src/**/*.{tsx,ts}'",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/native-ly/native-color-cards.git"
   },
   "keywords": [
-    "TypeScript",
-    "React",
-    "React Native",
-    "colors",
-    "cards"
+    "react",
+    "android",
+    "color",
+    "ios",
+    "react-native",
+    "component",
+    "card",
+    "style"
   ],
   "bugs": {
     "url": "https://github.com/native-ly/native-color-cards/issues"
@@ -36,16 +44,15 @@
     "expo-linear-gradient": "^8.3.1",
     "react-native-drag-sort": "^2.3.7",
     "react-native-touchable-scale": "^2.1.1",
-    "react-native-vector-icons": "^7.1.0",
-    "styled-components": "^5.2.0"
+    "react-native-vector-icons": "^7.1.0"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@testing-library/jest-native": "^3.4.3",
+    "@testing-library/react-native": "^7.1.0",
     "@types/color": "^3.0.1",
-    "@types/expo": "^33.0.1",
     "@types/react": "^16.9.51",
+    "@types/react-native": "^0.63.50",
     "@types/react-native-vector-icons": "^6.4.6",
-    "@types/styled-components": "^5.1.3",
     "@typescript-eslint/parser": "^4.4.0",
     "eslint": "7.10.0",
     "eslint-config-prettier": "^6.12.0",
@@ -54,13 +61,16 @@
     "eslint-plugin-react-hooks": "^4.1.2",
     "eslint-plugin-react-native": "^3.10.0",
     "husky": "^4.3.0",
+    "jest": "^26.6.3",
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
     "react": "^16.13.1",
     "react-native": "^0.62.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.27.3",
-    "typescript": "^4.0.3"
+    "react-test-renderer": "^17.0.1",
+    "semantic-release": "^17.3.9",
+    "semantic-release-gitmoji": "^1.3.4",
+    "ts-jest": "^26.5.1",
+    "typescript": "^4.3.2"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
