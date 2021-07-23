@@ -17,7 +17,9 @@
     "lint": "eslint --fix 'src/**/*.{tsx,ts}'",
     "prettier": "prettier --write 'src/**/*.{tsx,ts}'",
     "commit": "git-cz",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -39,47 +41,42 @@
   "homepage": "https://github.com/native-ly/native-color-cards#readme",
   "dependencies": {
     "color": "^3.1.2",
-    "expo-blur": "^8.2.0",
-    "expo-haptics": "^8.3.0",
-    "expo-linear-gradient": "^8.3.1",
-    "react-native-drag-sort": "^2.3.7",
-    "react-native-touchable-scale": "^2.1.1",
-    "react-native-vector-icons": "^7.1.0"
+    "expo-blur": "^9.0.3",
+    "expo-haptics": "^10.1.0",
+    "expo-linear-gradient": "^9.2.0",
+    "native-icons": "^1.1.1-beta.1",
+    "react-native-drag-sort": "^2.4.3",
+    "react-native-touchable-scale": "^2.1.2"
   },
   "devDependencies": {
-    "@testing-library/jest-native": "^3.4.3",
-    "@testing-library/react-native": "^7.1.0",
-    "@types/color": "^3.0.1",
-    "@types/react": "^16.9.51",
-    "@types/react-native": "^0.63.50",
-    "@types/react-native-vector-icons": "^6.4.6",
-    "@typescript-eslint/parser": "^4.4.0",
-    "eslint": "7.10.0",
-    "eslint-config-prettier": "^6.12.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.21.3",
-    "eslint-plugin-react-hooks": "^4.1.2",
-    "eslint-plugin-react-native": "^3.10.0",
-    "husky": "^4.3.0",
-    "jest": "^26.6.3",
-    "lint-staged": "^10.4.0",
-    "prettier": "^2.1.2",
+    "@testing-library/jest-native": "^4.0.1",
+    "@testing-library/react-native": "^7.2.0",
+    "@types/color": "^3.0.2",
+    "@types/react": "^17.0.14",
+    "@types/react-native": "^0.64.12",
+    "@types/react-native-vector-icons": "^6.4.8",
+    "@typescript-eslint/parser": "^4.28.4",
+    "eslint": "7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-native": "^3.11.0",
+    "husky": "^7.0.1",
+    "jest": "^27.0.6",
+    "lint-staged": "^11.0.1",
+    "prettier": "^2.3.2",
     "react": "^16.13.1",
     "react-native": "^0.62.0",
-    "react-test-renderer": "^17.0.1",
-    "semantic-release": "^17.3.9",
+    "react-test-renderer": "^17.0.2",
+    "semantic-release": "^17.4.4",
     "semantic-release-gitmoji": "^1.3.4",
-    "ts-jest": "^26.5.1",
-    "typescript": "^4.3.2"
+    "ts-jest": "^27.0.4",
+    "typescript": "^4.3.5"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-native": ">=0.59.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "src/**/*.{tsx,ts}": [

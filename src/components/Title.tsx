@@ -1,17 +1,24 @@
 import React from 'react'
-import { Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet, TextProps } from 'react-native'
 
-interface TitleProps {
+interface TitleProps extends TextProps {
   readonly isSubTitle?: boolean
+  readonly children: React.ReactText
 }
 
-export const Title: React.FC<TitleProps> = ({
+export const Title = ({
   isSubTitle = false,
   children,
-}) => {
+  style,
+  ...props
+}: TitleProps) => {
   return (
     // TODO update numberOfLines
-    <Text style={StyleSheet.flatten([styles.title])} numberOfLines={1}>
+    <Text
+      style={StyleSheet.flatten([styles.title, style])}
+      numberOfLines={1}
+      {...props}
+    >
       {children}
     </Text>
   )

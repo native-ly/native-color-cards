@@ -6,7 +6,7 @@ import { ThemeProvider } from '../contexts/ThemeContext'
 import { Variant } from '../types'
 import { Card } from './Card'
 
-type Item = {
+interface Item {
   readonly key: number
   readonly title: string
   readonly subtitle: string
